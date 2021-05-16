@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+  </head>
+  <body>
+    <input id="txt1" type="text" onkeyup="call()">
+    <input id="txt2" type="text" onkeyup="call()">
+    <p><textarea id="gcdArea" rows="8" cols="80" readonly></textarea></p>
+    <p><textarea id="lcmArea" rows="8" cols="80" readonly></textarea></p>
+  </body>
+</html>
+  <script>
+    function call(){
+      let a = document.querySelector("#txt1").value || 1
+      let b = document.querySelector("#txt2").value || 1
+      let r = -1;
+      const gcdArea = document.querySelector("#gcdArea")
+      const lcmArea = document.querySelector("#lcmArea")
+      while (r != 0) {
+        if (a >= b) {
+          r = a % b
+          if (r === 0) {
+            gcdArea.value = b;
+            lcmArea.value = (document.querySelector("#txt1").value * document.querySelector("#txt2").value) / gcdArea.value
+          }
+          else {
+            a = b
+            b = r
+          }
+        }
+        else {
+          let x = a
+          a = b
+          b = x
+        }
+      }
+    }
+  </script>
