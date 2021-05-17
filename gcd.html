@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+  </head>
+  <body>
+    <input id="txt1" type="text" onkeyup="if(window.event.keyCode==13){call()}">
+    <input id="txt2" type="text" onkeyup="if(window.event.keyCode==13){call()}">
+    <p><textarea id="gcdArea" rows="8" cols="80" readonly></textarea></p>
+  </body>
+</html>
+  <script>
+    function call() {
+      let a = document.querySelector("#txt1").value
+      let b = document.querySelector("#txt2").value
+      let gcdArea = document.querySelector("#gcdArea")
+      let min = Math.min(a,b)
+      let max = Math.max(a,b)
+      for (var i = min; i >= 2; i--) {
+        if (min % i === 0 && max % i=== 0) {
+          gcdArea.value += i
+        }
+      }
+    }
+  </script>
